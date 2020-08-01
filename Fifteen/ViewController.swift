@@ -32,6 +32,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var shuffleButton: UIButton!
     @IBOutlet weak var clearButton: UIButton!
     @IBOutlet weak var loadImageButton: UIButton!
+    @IBOutlet weak var progressBar: UIProgressView!
     
     
     var puzzleList: [UIImageView?] = []
@@ -187,6 +188,7 @@ class ViewController: UIViewController {
             }
         }
         
+        progressBar.progress = Float(correct) / Float(15)
 //        result.text = String(correct)
     }
     
@@ -209,7 +211,7 @@ class ViewController: UIViewController {
         clearButtonAction(sender)
         var index: Int = 0
         self.infoLabel.text = ""
-
+        
         pointsAfterShuffle.removeAll()
         puzzleList.forEach{ puzzle in
             pointsAfterShuffle.append(puzzle!.center)
@@ -230,11 +232,11 @@ class ViewController: UIViewController {
     }
     
     func stopTime(){
-          if timer != nil {
-          timer!.invalidate()
-          timer = nil
-          result.text = String(0)
-        count = 0
+        if timer != nil {
+            timer!.invalidate()
+            timer = nil
+            result.text = String(0)
+            count = 0
         }
     }
     
@@ -276,14 +278,16 @@ class ViewController: UIViewController {
         loadImageButton.layer.cornerRadius = 16
         shuffleButton.layer.cornerRadius = 16
         clearButton.layer.cornerRadius = 16
+        progressBar.transform = progressBar.transform.scaledBy(x: 1, y: 5)
+        
         
         puzzleList = [puzzle1, puzzle2, puzzle3, puzzle4, puzzle5, puzzle6, puzzle7, puzzle8, puzzle9, puzzle10, puzzle11, puzzle12, puzzle13, puzzle14, puzzle15, emptyPuzzle]
         fromChosenToEmpty =  sqrt(pow(puzzleList[0]!.center.x - puzzleList[1]!.center.x, 2) + pow(puzzleList[0]!.center.y - puzzleList[1]!.center.y, 2))
         
         puzzleList.forEach{ puzzle in
             puzzle?.layer.cornerRadius = 3
-            pointsBeforeShuffle.append(puzzle!.center)        }
-
+            pointsBeforeShuffle.append(puzzle!.center)
+        }
         
         print("distance between two puzzles")
         print(fromChosenToEmpty)

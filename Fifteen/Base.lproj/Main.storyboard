@@ -160,6 +160,10 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="fY7-ap-BUB">
+                                <rect key="frame" x="36" y="205" width="301" height="2"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </progressView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -169,6 +173,7 @@
                         <outlet property="emptyPuzzle" destination="hba-E7-aUc" id="qH6-6c-mSQ"/>
                         <outlet property="infoLabel" destination="xY5-RH-4hn" id="ZMn-Xn-hvS"/>
                         <outlet property="loadImageButton" destination="f9w-j5-sus" id="HEb-yi-IaP"/>
+                        <outlet property="progressBar" destination="fY7-ap-BUB" id="q3d-4t-3TF"/>
                         <outlet property="puzzle1" destination="R2e-Gf-QQV" id="AJC-Tu-xPu"/>
                         <outlet property="puzzle10" destination="dKf-E9-ZpC" id="Jlo-ab-dv6"/>
                         <outlet property="puzzle11" destination="W5P-o4-U0X" id="C5B-Ua-xQI"/>
