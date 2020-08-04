@@ -174,24 +174,20 @@ class ViewController: UIViewController {
         {
             correct = correct - 1
             
-        }else{
-            if(puzzleList.count-1 == correct){
-
+        }
+            if(puzzleList.count-1 == correct && count != 0){
+                self.infoLabel.text = "Time: " + String(self.count) + " .Push shuffle to start"
                 stopTime()
                 
                 let refreshAlert = UIAlertController(title: "Congratulations!!!", message: "You win", preferredStyle: UIAlertController.Style.alert)
                 refreshAlert.addAction(UIAlertAction(title: "Confirm", style: .cancel, handler: { (action: UIAlertAction!) in
                     print("You win")
-                    self.infoLabel.text = "Push shuffle to start"
+                    
                 }))
                 present(refreshAlert, animated: true, completion: nil)
             }
-        }
-        
         progressBar.progress = Float(correct) / Float(15)
-//        result.text = String(correct)
     }
-    
     
     @IBAction func clearButtonAction(_ sender: Any) {
         var index = 0
@@ -207,7 +203,6 @@ class ViewController: UIViewController {
     }
     
     @IBAction func shuffleAction(_ sender: Any) {
-        print("bedzie losowalo")
         clearButtonAction(sender)
         var index: Int = 0
         self.infoLabel.text = ""
